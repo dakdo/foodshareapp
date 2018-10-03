@@ -8,8 +8,8 @@ class CustomUser(AbstractUser):
         return self.email
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(CustomUser)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.username
+        return self.user
